@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.folder == "til/Tasks"
+    - file.tags.contains("할일")
+views:
+  - type: kanban
+    name: 보드
+    groupBy:
+      property: 상태
+      direction: ASC
+    groupOrder:
+      - - To Do
+      - - In Progress
+  - type: table
+    name: 전체 목록
+    order:
+      - file.name
+      - 상태
+      - 시작일
+      - 완료 예정일
+      - 완료일
